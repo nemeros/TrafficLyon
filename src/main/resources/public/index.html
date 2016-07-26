@@ -11,12 +11,15 @@
 </head>
 <body role="document">
 
-	<div class="container" role="main" data-ng-controller="mainController as mc">
-		<div class="container">
-			<b>{{mc.msg}}</b>
-			<leaflet id="mymap" center="mc.lyon" height="800px" width="600px" geojson="mc.geojson"></leaflet>
+	<form novalidate>
+		<div class="container" role="main" data-ng-controller="mainController as mc">
+			<div class="container">
+				<b>{{mc.msg}}</b>
+				<leaflet id="mymap" center="mc.lyon" height="800px" width="600px" geojson="mc.geojson"></leaflet>
+				<button class="btn btn-primary" data-ng-click="mc.refreshData()">Refresh</button>
+			</div>
 		</div>
-	</div>
+	</form>
 
 
 
