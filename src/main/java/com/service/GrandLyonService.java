@@ -1,5 +1,6 @@
 package com.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,8 +11,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class GrandLyonService {
 	
-	
-	private final static String url = "https://download.data.grandlyon.com/wfs/grandlyon?SERVICE=WFS&REQUEST=GetFeature&typename=pvo_patrimoine_voirie.pvotronconwebcriter&VERSION=2.0.0&maxfeatures=100&outputformat=GEOJSON";
+	@Value("${TRAFFIC_URL}")
+	private static String url ;
 
 	@RequestMapping(value="api/traffic", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> getLiveTraffic(){
