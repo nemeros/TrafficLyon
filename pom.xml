@@ -5,7 +5,7 @@
 	<groupId>com.nemeros</groupId>
 	<artifactId>trafficlyon</artifactId>
 	<version>1.0.0</version>
-	<name>mapjs</name>
+	<name>trafficlyon</name>
 	<packaging>jar</packaging>
 
 	<properties>
