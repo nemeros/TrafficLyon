@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="MapJsApp">
+<head lang="en">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/leaflet/leaflet.css">
+    <title>Map JS</title>
+</head>
+<body role="document">
+
+	<div class="container" role="main" data-ng-controller="mainController as mc">
+		<div class="container">
+			<b>{{mc.msg}}</b>
+			<leaflet id="mymap" center="mc.lyon" height="800px" width="600px" geojson="mc.geojson"></leaflet>
+		</div>
+	</div>
+
+
+
+	<!-- Dependance générique -->
+	<script type="text/javascript" src="static/jquery/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="static/angular/angular.min.js"></script>
+	<script type="text/javascript" src="static/angular/angular-resource.min.js"></script>
+	<script type="text/javascript" src="static/leaflet/leaflet.js"></script>
+	<script type="text/javascript" src="static/simple-logger/angular-simple-logger.js"></script>
+	<script type="text/javascript" src="static/angular-leaflet/ui-leaflet.min.js"></script>
+
+
+	<!-- Dependance Applicative -->
+	<script type="text/javascript" src="scripts/app/app.js"></script>
+	<script type="text/javascript" src="scripts/app/main/main.js"></script>
+</body>
+</html>
