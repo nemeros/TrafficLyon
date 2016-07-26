@@ -3,9 +3,9 @@
 
 	<!-- Description du Projet -->
 	<groupId>com.nemeros</groupId>
-	<artifactId>trafficlyon</artifactId>
+	<artifactId>traficlyon</artifactId>
 	<version>1.0.0</version>
-	<name>trafficlyon</name>
+	<name>traficlyon</name>
 	<packaging>jar</packaging>
 
 	<properties>

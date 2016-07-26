@@ -14,23 +14,48 @@
 		vm.lyon = {lat: 45.77699455, lng: 4.82488845, zoom: 10};
 		
 		vm.refreshData = refreshData;
+		var getStyle = getStyle;
+		var getColor = getColor;
+		var bindFeature = bindFeature;
 		
+		
+		function bindFeature(feature, layer){
+			var popupOptions = {maxWidth: 200};
+			layer.bindPopup("<b>Site name:</b> " + feature.properties.publiccomment, popupOptions);
+		}
+		
+		function getColor(etat){
+			var couleur = "blue";
+			
+			if(etat == "G" || etat == "*"){
+				couleur = "green";
+			}
+			if(etat == "N"){
+				couleur = "grey";
+			}
+			if(etat == "V"){
+				couleur == "red";
+			}
+			
+			return couleur;
+		}
+		
+		function getStyle(feature){
+			return {
+				weight: 2,
+				opacity: 1,
+				fillOpacity: 0.7
+			}
+		}
 		
 		function refreshData(){
 		
-			$http.get("api/traffic").then(
+			$http.get("api/trafic").then(
 					function successCallBack(response){
 						vm.geojson = {
 								data: response.data,
-								style: {
-									fillColor: 'green',
-									weight: 2,
-									opacity: 1,
-									color: 'red',
-									fillOpacity: 0.7
-								}
+								onEachFeature: bindFeature
 						};
-						$log.info(angular.toJson(response))
 					},
 					function errorCallBack(response){
 						$log.error(angular.toJson(response));
