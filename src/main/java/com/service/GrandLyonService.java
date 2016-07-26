@@ -1,7 +1,5 @@
 package com.service;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -16,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class GrandLyonService {
 	
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
+	//private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@Value("${TRAFFIC_URL}")
 	private String url ;
@@ -34,7 +32,7 @@ public class GrandLyonService {
 		
 		ResponseEntity<String> rep = rt.exchange(url, HttpMethod.GET, entity, String.class);
 
-		log.info("Response : " + rep.getBody());
+		//log.info("Response : " + rep.getBody());
 		
 		return new ResponseEntity<String>(rep.getBody(), HttpStatus.OK);
 	}
