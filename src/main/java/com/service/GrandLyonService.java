@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 public class GrandLyonService {
 	
 	@Value("${TRAFFIC_URL}")
-	private static String url ;
+	private String url ;
 
 	@RequestMapping(value="api/traffic", method=RequestMethod.GET, produces="application/json")
 	public ResponseEntity<String> getLiveTraffic(){
