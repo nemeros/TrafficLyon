@@ -9,9 +9,11 @@
 	function mainController($scope, $http, $log){
 		var vm = this;
 		
-		vm.msg = "Hello !";
+		vm.msg = "Réponse !";
 		
-		vm.lyon = {lat: 45.77699455, lng: 4.82488845, zoom: 10};
+		vm.lyon = {lat: 45.77699455, lng: 4.82488845, zoom: 9};
+		
+		vm.error = null;
 		
 		vm.refreshData = refreshData;
 		var getStyle = getStyle;
@@ -56,9 +58,10 @@
 								data: response.data,
 								onEachFeature: bindFeature
 						};
+						vm.error = null;
 					},
 					function errorCallBack(response){
-						$log.error(angular.toJson(response));
+						vm.error = angular.toJson(response);
 					});
 		};
 	}
